@@ -7,48 +7,48 @@
 		@apply flex flex-wrap justify-end w-full bg-slate-100;
 	}
 	header {
-		@apply fixed left-0 top-0
-    flex h-screen w-3/12 flex-wrap justify-center
-    p-8 text-black/50
-    transition-colors duration-500
+		@apply fixed left-0 top-0 
+    flex h-screen w-3/12 flex-wrap justify-center 
+     p-8 text-black/50
+    transition-colors duration-500 
 
-    web:relative web:h-auto
-    web:w-full
-    web:content-center
-    web:justify-between
-    web:pt-12
+    web:relative web:h-auto 
+    web:w-full 
+    web:content-center 
+    web:justify-between     
+    web:pt-12 
+  
+    mobile:justify-center 
+    mobile:py-12 
 
-    mobile:justify-center
-    mobile:py-12
-
-    tablet:[&>*]:w-[40%]
-    [&_*]:text-center
-    web:[&_*]:text-left
-    tablet:[&_*]:text-left
-    mobile:[&_*]:w-full
-    mobile:[&_*]:justify-center
+    tablet:[&>*]:w-[40%]     
+    [&_*]:text-center  
+    web:[&_*]:text-left 
+    tablet:[&_*]:text-left 
+    mobile:[&_*]:w-full 
+    mobile:[&_*]:justify-center 
     mobile:[&_*]:text-center;
 	}
 	header.on {
 		@apply z-20 web:fixed web:bg-slate-100/40 web:shadow-sm web:backdrop-blur-md;
 	}
 	main {
-		@apply relative w-9/12 p-8 mt-0 web:w-full mobile:px-16;
+		@apply relative w-9/12 p-8 mt-0 web:w-full;
 	}
 }
 
 @layer components {
 	.btn {
-		@apply flex cursor-pointer items-center justify-center gap-2 self-center
-    rounded bg-gray-400 px-4 py-1
-    text-sm font-semibold text-white
-    opacity-60 shadow-lg
-    transition-[opacity,transform,filter] duration-300
-    hover:scale-110
-    hover:opacity-100
+		@apply flex cursor-pointer items-center justify-center gap-2 self-center 
+    rounded bg-gray-400 px-4 py-1 
+    text-sm font-semibold text-white 
+    opacity-60 shadow-lg  
+    transition-[opacity,transform,filter] duration-150 
+    hover:scale-110 
+    hover:opacity-100 
     hover:saturate-200;
 	}
 	.btn-lg {
-		@apply px-10 py-3 shadow-2xl btn;
+		@apply px-10 py-3 duration-500 shadow-2xl btn;
 	}
 }

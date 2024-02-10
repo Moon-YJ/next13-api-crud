@@ -3,6 +3,8 @@ import '../styles/globals.css';
 import '../styles/system.scss';
 import clsx from 'clsx';
 import Header from '@/components/Header';
+import { GlobalProvider } from '@/hooks/useGlobalData';
+import Modal from '@/components/Modal';
 
 const inter = Inter({ subsets: ['latin'] });
 const monoton = Monoton({
@@ -29,8 +31,11 @@ export default function RootLayout({ children }) {
 			<body
 				className={clsx(inter.className, monoton.variable, comfortaa.variable)}
 			>
-				<Header />
-				<main>{children}</main>
+				<GlobalProvider>
+					<Header />
+					<main>{children}</main>
+					<Modal />
+				</GlobalProvider>
 			</body>
 		</html>
 	);

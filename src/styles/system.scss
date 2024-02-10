@@ -32,3 +32,18 @@ $wide: 1400px;
 		--col: 1;
 	}
 }
+
+body {
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+	&::-webkit-scrollbar-thumb {
+		transform: translateX(-10px);
+		background: #2eb9ff;
+		filter: satureate(200%);
+		border-radius: 4px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+}
