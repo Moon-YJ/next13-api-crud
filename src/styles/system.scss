@@ -2,3 +2,33 @@ $mobile: 640px;
 $tablet: 1024px;
 $web: 1200px;
 $wide: 1400px;
+
+:root {
+	--col: 4;
+	--gap: 24px;
+	--wid: calc((100% - ((var(--col) - 1) * var(--gap))) / var(--col));
+}
+
+@media (max-width: $wide) {
+	:root {
+		--col: 3;
+	}
+}
+
+@media (max-width: $web) {
+	:root {
+		--col: 3;
+	}
+}
+
+@media (max-width: $tablet) {
+	:root {
+		--col: 2;
+	}
+}
+
+@media (max-width: $mobile) {
+	:root {
+		--col: 1;
+	}
+}

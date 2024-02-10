@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import PostList from '@/components/PostList';
 
 export default function Home() {
 	return (
@@ -10,8 +10,6 @@ export default function Home() {
 				</div>
 			</main>
 		*/
-		<main className='w-full h-screen bg-gray-500'>
-			<Header />
-		</main>
+		<PostList />
 	);
 }

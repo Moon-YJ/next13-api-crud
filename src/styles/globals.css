@@ -9,7 +9,7 @@
 	header {
 		@apply fixed left-0 top-0
     flex h-screen w-3/12 flex-wrap justify-center
-    bg-white p-8 text-black/50
+    p-8 text-black/50
     transition-colors duration-500
 
     web:relative web:h-auto
@@ -28,6 +28,9 @@
     mobile:[&_*]:w-full
     mobile:[&_*]:justify-center
     mobile:[&_*]:text-center;
+	}
+	header.on {
+		@apply z-20 web:fixed web:bg-slate-100/40 web:shadow-sm web:backdrop-blur-md;
 	}
 	main {
 		@apply relative w-9/12 p-8 mt-0 web:w-full mobile:px-16;
