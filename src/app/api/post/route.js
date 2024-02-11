@@ -8,3 +8,9 @@ export async function POST(req) {
 	await Post.create({ tit, con });
 	return NextResponse.json({ message: 'Add Post' }, { status: 201 });
 }
+
+export async function GET() {
+	await connectDB();
+	const posts = await Post.find().sort({ createdAt: -1 });
+	return NextResponse.json({ posts });
+}
