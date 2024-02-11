@@ -51,4 +51,10 @@
 	.btn-lg {
 		@apply px-10 py-3 duration-500 shadow-2xl btn;
 	}
+	.btn-line {
+		@apply px-8 py-2 border rounded w-fit border-white/70 hover:bg-white/80 hover:text-black/50;
+	}
+	.input {
+		@apply w-full p-4 rounded shadow-inner outline-none resize-none bg-black/5 placeholder:text-white/60;
+	}
 }

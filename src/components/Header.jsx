@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import Btn from './Btn';
 
 function Header() {
 	const [Ison, setIson] = useState(false);
@@ -25,9 +26,7 @@ function Header() {
 					WEB DESIGN & DEVELOPMENT
 				</span>
 			</h1>
-			<button className='btn-lg w-[80%] bg-sky-400 shadow-sky-400 web:w-auto mobile:w-[80%]'>
-				APPLY POST
-			</button>
+			<Btn type='post' />
 		</header>
 	);
 }

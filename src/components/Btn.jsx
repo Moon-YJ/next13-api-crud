@@ -13,6 +13,10 @@ export default function Btn({ type }) {
 		setModalOpen(true);
 	};
 
+	type === 'post' &&
+		((className =
+			'btn-lg w-[80%] bg-sky-400 shadow-sky-400 web:w-auto mobile:w-[80%]'),
+		(txt = 'Create Post'));
 	type === 'view' &&
 		((className = '!bg-cyan-400 !shadow-cyan-400/50 delay-0'), (txt = 'View'));
 	type === 'edit' &&
