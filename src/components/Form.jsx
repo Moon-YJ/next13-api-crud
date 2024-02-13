@@ -1,23 +1,28 @@
 import { useGlobalData } from '@/hooks/useGlobalData';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function Form() {
+export default function Form({ isEdit = false }) {
 	const router = useRouter();
 	const { setModalOpen } = useGlobalData();
 	const [Tit, setTit] = useState('');
 	const [Con, setCon] = useState('');
+	const { PostId } = useGlobalData();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!Tit.trim() || !Con.trim())
 			return alert('Please enter both Title and Content');
+		const query = isEdit ? `/${PostId}` : '';
 		try {
-			const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, {
-				method: 'POST',
-				headers: { 'Content-type': 'application/json' },
-				body: JSON.stringify({ tit: Tit, con: Con }),
-			});
+			const res = await fetch(
+				`${process.env.NEXT_PUBLIC_API_URL}/api/post${query}`,
+				{
+					method: isEdit ? 'PUT' : 'POST',
+					headers: { 'Content-type': 'application/json' },
+					body: JSON.stringify({ tit: Tit, con: Con }),
+				}
+			);
 			if (!res.ok) throw new Error('Failed to add a post');
 			router.refresh();
 			setModalOpen(false);
@@ -31,12 +36,26 @@ export default function Form() {
 		setCon('');
 	};
 
+	useEffect(() => {
+		const getSinglePost = async (id) => {
+			const data = await fetch(
+				`${process.env.NEXT_PUBLIC_API_URL}/api/post/${id}`
+			);
+			const { post } = await data.json();
+			setTit(post.tit);
+			setCon(post.con);
+		};
+		isEdit && PostId !== '' && getSinglePost(PostId);
+	}, [PostId, isEdit]);
+
 	return (
 		<form
 			className='flex flex-wrap content-center gap-3'
 			onSubmit={handleSubmit}
 		>
-			<h1 className='mb-4 text-4xl text-white font-comfortaa'>Add Post</h1>
+			<h1 className='mb-4 text-4xl text-white font-comfortaa'>
+				{isEdit ? 'Edit Post' : 'Add Post'}
+			</h1>
 			<input
 				className='input'
 				type='text'
@@ -56,7 +75,7 @@ export default function Form() {
 					Cancel
 				</button>
 				<button type='submit' className='btn-line'>
-					Add Post
+					{isEdit ? 'Edit Post' : 'Add Post'}
 				</button>
 			</nav>
 		</form>

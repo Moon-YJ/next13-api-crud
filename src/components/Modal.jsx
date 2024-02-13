@@ -30,6 +30,7 @@ function Modal() {
 					<div className='inner'>
 						{ModalType === 'post' && <Form />}
 						{ModalType === 'view' && <Detail />}
+						{ModalType === 'edit' && <Form isEdit={true} />}
 					</div>
 					<span
 						onClick={() => setModalOpen(false)}
