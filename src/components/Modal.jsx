@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import clsx from 'clsx';
 import Form from './Form';
 import Detail from './Detail';
+import CheckDel from './CheckDel';
 
 function Modal() {
 	const { ModalOpen, setModalOpen, ModalType } = useGlobalData();
@@ -23,7 +24,7 @@ function Modal() {
 					exit={{ x: '-100%', opacity: 0 }}
 					transition={{ type: 'spring', stiffness: 100, duration: 0.2 }}
 					className={clsx(
-						'fixed left-[50%] top-[50%] z-30 ml-[-25vw] mt-[-35vh] h-[70vh] w-[50vw]  rounded-xl  p-20 text-white shadow-2xl  saturate-150 backdrop-blur-sm web:ml-[-40vw] web:w-[80vw]',
+						'fixed left-[50%] top-[50%] z-30 ml-[-25vw] mt-[-35vh] h-[70vh] w-[50vw]  rounded-xl  p-20 text-white shadow-2xl  saturate-150 backdrop-blur-sm web:ml-[-40vw] web:w-[80vw] tablet:px-14 mobile:px-8',
 						className
 					)}
 				>
@@ -31,6 +32,7 @@ function Modal() {
 						{ModalType === 'post' && <Form />}
 						{ModalType === 'view' && <Detail />}
 						{ModalType === 'edit' && <Form isEdit={true} />}
+						{ModalType === 'del' && <CheckDel />}
 					</div>
 					<span
 						onClick={() => setModalOpen(false)}

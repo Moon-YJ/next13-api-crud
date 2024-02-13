@@ -16,3 +16,10 @@ export async function PUT(req, { params }) {
 	await Post.findByIdAndUpdate(id, { tit, con });
 	return NextResponse.json({ message: 'Post Updated.' }, { status: 200 });
 }
+
+export async function DELETE(req, { params }) {
+	const { id } = params;
+	await connectDB();
+	await Post.findByIdAndDelete(id);
+	return NextResponse.json({ message: 'Post deleted.' }, { status: 200 });
+}
