@@ -3,6 +3,7 @@ import { useGlobalData } from '@/hooks/useGlobalData';
 import { AnimatePresence, motion } from 'framer-motion';
 import clsx from 'clsx';
 import Form from './Form';
+import Detail from './Detail';
 
 function Modal() {
 	const { ModalOpen, setModalOpen, ModalType } = useGlobalData();
@@ -26,7 +27,10 @@ function Modal() {
 						className
 					)}
 				>
-					<div className='inner'>{ModalType === 'post' && <Form />}</div>
+					<div className='inner'>
+						{ModalType === 'post' && <Form />}
+						{ModalType === 'view' && <Detail />}
+					</div>
 					<span
 						onClick={() => setModalOpen(false)}
 						className='absolute text-lg cursor-pointer right-10 top-10'

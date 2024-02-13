@@ -2,8 +2,8 @@
 import { useGlobalData } from '@/hooks/useGlobalData';
 import clsx from 'clsx';
 
-export default function Btn({ type }) {
-	const { ModalOpen, setModalOpen, setModalType } = useGlobalData();
+export default function Btn({ type, postId = '' }) {
+	const { ModalOpen, setModalOpen, setModalType, setPostId } = useGlobalData();
 	let className = '';
 	let txt = '';
 
@@ -11,6 +11,7 @@ export default function Btn({ type }) {
 		if (ModalOpen) return;
 		setModalType(type);
 		setModalOpen(true);
+		type !== 'post' && setPostId(postId);
 	};
 
 	type === 'post' &&

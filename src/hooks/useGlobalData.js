@@ -5,10 +5,18 @@ export const GlobalContext = createContext();
 export function GlobalProvider({ children }) {
 	const [ModalOpen, setModalOpen] = useState(false);
 	const [ModalType, setModalType] = useState('');
+	const [PostId, setPostId] = useState('');
 
 	return (
 		<GlobalContext.Provider
-			value={{ ModalOpen, setModalOpen, ModalType, setModalType }}
+			value={{
+				ModalOpen,
+				setModalOpen,
+				ModalType,
+				setModalType,
+				PostId,
+				setPostId,
+			}}
 		>
 			{children}
 		</GlobalContext.Provider>

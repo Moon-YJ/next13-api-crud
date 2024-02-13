@@ -31,7 +31,7 @@ export default async function PostList() {
 						</div>
 						<nav className='[&>*]:btn flex items-center justify-end gap-2 [&>*]:translate-y-10 [&>*]:opacity-0 group-hover:[&>*]:translate-y-0 group-hover:[&>*]:opacity-60'>
 							{['view', 'edit', 'del'].map((el) => (
-								<Btn key={el} type={el} />
+								<Btn key={el} type={el} postId={post._id} />
 							))}
 						</nav>
 					</article>
